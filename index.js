@@ -1,7 +1,6 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
-
-// DONE: Include packages needed for this application
+const generateMarkdown = require("./generateMarkdown");
 
 // DONE: Create an array of questions for user input
 const questions = [
@@ -16,7 +15,7 @@ const questions = [
   "Enter email address.",
 ];
 
-function collectData() {
+function collectResponses() {
   inquirer
     .prompt([
       {
@@ -67,68 +66,24 @@ function collectData() {
       },
     ])
     .then((responses) => {
-      fs.appendFile(
-        "myreadme.md",
-        `# ${responses.title}
-
-      ## Description
-      
-      ${responses.description}
-      
-      ## Table of Contents
-      
-      ## Installation
-      
-      ${responses.install}
-      
-      ## Usage
-      
-      ${responses.usage}
-      
-      ## Contributing
-      
-      ${responses.contribution}
-      
-      ## Tests
-      
-      ${responses.test}
-      
-      ## License
-      
-      ${responses.license}
-      
-      ## Questions
-      
-      Find me on GitHub: ${responses.GitHub}
-      
-      Or email me: ${responses.email}
-      `,
-        (err) => (err ? console.error(err) : null)
-      );
-      console.log("Readme written!");
+      writeFile(responses);
     });
 }
 
-collectData();
-// console.log(userDescription);
-// console.log(input.GitHub);
-// .then(console.log(responses));
+function writeFile(responses) {
+  fs.appendFile("myreadme.md", generateMarkdown(responses), (err) =>
+    err ? console.error(err) : null
+  );
+  console.log("Readme written as myreadme.md");
+}
+
+collectResponses();
+
+// and put collect into init()?
 
 // // TODO: Create a function to write README file
 // function writeToFile(fileName, data) {}
 
-// function writeFile(input) {
-//   fs.appendFile("myreadme.md", `TODOcontenthere`, (err) =>
-//     err ? console.error(err) : null
-//   );
-//   console.log(input.GitHub);
-//   //   console.log("Readme generated!");
-// }
-
-// function init() {
-//   var collectedResponse = collectData();
-//   writeFile(collectedResponse);
-// }
-
-// // Function call to initialize app
+// function init() {}
 // init();
+// // Function call to initialize app
