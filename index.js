@@ -15,7 +15,7 @@ const questions = [
   "Enter email address.",
 ];
 
-function collectResponses() {
+function init() {
   inquirer
     .prompt([
       {
@@ -77,13 +77,5 @@ function writeFile(responses) {
   console.log("Readme written as myreadme.md");
 }
 
-collectResponses();
-
-// and put collect into init()?
-
-// // TODO: Create a function to write README file
-// function writeToFile(fileName, data) {}
-
-// function init() {}
-// init();
-// // Function call to initialize app
+// Function call to initialize app
+init();
