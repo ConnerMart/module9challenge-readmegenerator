@@ -36,5 +36,4 @@ function generateMarkdown(data) {
 // TODO: make GitHub and email working links
 
 module.exports = generateMarkdown;
-
-// the variable generateMarkdown in the other function will be equal to the returned value of the generateMarkdown function above ??
+// the variable generateMarkdown when used in index.js will be equal to the returned value of the generateMarkdown function above

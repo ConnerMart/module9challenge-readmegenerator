@@ -2,7 +2,6 @@ const inquirer = require("inquirer");
 const fs = require("fs");
 const generateMarkdown = require("./generateMarkdown");
 
-// DONE: Create an array of questions for user input
 const questions = [
   "Enter title.",
   "Enter description.",
@@ -71,10 +70,10 @@ function init() {
 }
 
 function writeFile(responses) {
-  fs.appendFile("myreadme.md", generateMarkdown(responses), (err) =>
+  fs.appendFile("generatedReadme.md", generateMarkdown(responses), (err) =>
     err ? console.error(err) : null
   );
-  console.log("Readme written as myreadme.md");
+  console.log("Readme written as generatedReadme.md");
 }
 
 // Function call to initialize app
