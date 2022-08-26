@@ -10,7 +10,7 @@ const questions = [
   "Enter contribution guidelines.",
   "Enter test instructions.",
   "Choose license.",
-  "Enter GitHub username.",
+  "Enter GitHub URL.",
   "Enter email address.",
 ];
 
@@ -85,5 +85,5 @@ function writeFile(responses) {
   console.log("Readme written as generatedReadme.md");
 }
 
-// Function call to initialize app
+// function call to initialize app
 init();
