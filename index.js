@@ -1,6 +1,6 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
-const generateMarkdown = require("./generateMarkdown");
+const generateMarkdown = require("./assets/generateMarkdown");
 
 const questions = [
   "Enter title.",
@@ -79,8 +79,10 @@ function init() {
 }
 
 function writeFile(responses) {
-  fs.appendFile("generatedReadme.md", generateMarkdown(responses), (err) =>
-    err ? console.error(err) : null
+  fs.appendFile(
+    "./assets/generatedReadme.md",
+    generateMarkdown(responses),
+    (err) => (err ? console.error(err) : null)
   );
   console.log("Readme written as generatedReadme.md");
 }
